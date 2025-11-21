@@ -1,0 +1,13 @@
+version: 1.0
+runtime: python3
+build:
+  commands:
+    build:
+      - pip install -r requirements.txt
+run:
+  # We use port 8080 because App Runner defaults to it.
+  # We disable CORS, XSRF, and Compression to reduce WebSocket handshake failures.
+  command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0 --server.enableCORS false --server.enableXsrfProtection false --server.enableWebsocketCompression false
+  network:
+    port: 8501
+    env: PORT
