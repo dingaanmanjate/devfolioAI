@@ -3,7 +3,7 @@ runtime: python3
 build:
   commands:
     build:
-      - pip install -r requirements.txt
+      - pip install -r frontend/requirements.txt
 run:
   # We use port 8080 because App Runner defaults to it.
   # We disable CORS, XSRF, and Compression to reduce WebSocket handshake failures.
