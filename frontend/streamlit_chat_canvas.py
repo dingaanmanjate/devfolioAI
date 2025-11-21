@@ -15,14 +15,7 @@ MAX_MESSAGES_HISTORY = 200
 
 # Load Streamlit secrets into environment variables for LangChain compatibility
 # This ensures GOOGLE_API_KEY is available when deployed to Streamlit Cloud
-if hasattr(st, "secrets"):
-    try:
-        for key in st.secrets:
-            if key not in os.environ:
-                os.environ[key] = str(st.secrets[key])
-    except (FileNotFoundError, Exception):
-        # No secrets file found - this is OK for local development with .env
-        pass
+load_dotenv()
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 # Avoid duplicate path injection
