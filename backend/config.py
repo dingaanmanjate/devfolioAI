@@ -10,6 +10,7 @@ load_dotenv()
 # Model configuration
 MODEL_NAME = "gemini-2.5-flash"
 TEMPERATURE = 0.7
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "").strip(' "')
 
 # Global system prompt for the assistant (applied once per session before any template-specific prompts)
 DEFAULT_GLOBAL_SYSTEM_PROMPT = (
